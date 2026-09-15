@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donate — Everlight Foundation</title>
+<meta name="description" content="Donate to Everlight Foundation to support food, clothing, and education assistance for people in need.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="assets/logo-icon.png" alt="Everlight Foundation logo">
+      Everlight Foundation
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="our-work.html">Our Work</a></li>
+      <li><a href="sponsor.html">Become a Sponsor</a></li>
+      <li><a href="sponsor-login.html">Sponsor Login</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a class="nav-cta" href="donate.html" aria-current="page">Donate</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+  <section style="padding-bottom: 24px;">
+    <div class="container">
+      <div class="section-head">
+        <h1 style="font-size: clamp(2.2rem, 4vw, 3rem);">Donate</h1>
+        <p class="hero-lede">Your support can help us provide food, clothing, educational assistance and other essential support to people in need.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="container" style="max-width: 780px;">
+
+      <div class="donate-steps" aria-hidden="true">
+        <span class="donate-step is-active" data-step-indicator="amount">1. Amount</span>
+        <span class="donate-step" data-step-indicator="method">2. Payment Method</span>
+        <span class="donate-step" data-step-indicator="details">3. Payment Details</span>
+      </div>
+
+      <!-- STEP 1: Amount -->
+      <div class="form-card donate-step-panel" id="donate-step-amount">
+        <h3 style="margin-bottom: 18px;">Choose an amount</h3>
+
+        <div class="form-note">
+          This page collects a donation amount and shows cryptocurrency payment instructions. No card or bank details are collected here, and no transaction is processed automatically — you complete the transfer yourself from your own wallet or exchange.
+        </div>
+
+        <div class="amount-grid" role="group" aria-label="Choose a donation amount">
+          <button type="button" class="amount-btn">£10</button>
+          <button type="button" class="amount-btn">£25</button>
+          <button type="button" class="amount-btn">£50</button>
+          <button type="button" class="amount-btn">£100</button>
+          <button type="button" class="amount-btn">Other</button>
+        </div>
+
+        <div class="custom-amount field">
+          <label for="custom-amount">Custom amount (£)</label>
+          <input type="number" id="custom-amount" name="customAmount" min="1" step="1" placeholder="Enter an amount">
+        </div>
+
+        <div id="donate-amount-error" class="form-result error" role="alert"></div>
+
+        <button type="button" class="btn btn-primary btn-block" id="donate-continue-btn" style="margin-top: 8px;">Continue</button>
+      </div>
+
+      <!-- STEP 2: Payment method -->
+      <div class="form-card donate-step-panel" id="donate-step-method" hidden>
+        <button type="button" class="donate-back-link" data-back-to="amount">&larr; Back to amount</button>
+        <h3 style="margin-bottom: 6px;">Choose a payment method</h3>
+        <p class="donate-amount-summary">Donating <strong id="donate-method-amount-display">£0</strong></p>
+
+        <div class="payment-method-grid" role="group" aria-label="Choose a cryptocurrency">
+          <button type="button" class="payment-method-card" data-crypto="btc">
+            <span class="crypto-badge" aria-hidden="true">BTC</span>
+            <span class="payment-method-card-label">
+              <strong>Bitcoin</strong>
+              <span>Bitcoin network</span>
+            </span>
+          </button>
+          <button type="button" class="payment-method-card" data-crypto="eth">
+            <span class="crypto-badge" aria-hidden="true">ETH</span>
+            <span class="payment-method-card-label">
+              <strong>Ethereum</strong>
+              <span>ERC-20</span>
+            </span>
+          </button>
+          <button type="button" class="payment-method-card" data-crypto="usdt">
+            <span class="crypto-badge" aria-hidden="true">USDT</span>
+            <span class="payment-method-card-label">
+              <strong>USDT</strong>
+              <span>TRON (TRC-20)</span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Selected crypto payment details -->
+      <div class="crypto-panel donate-step-panel" id="donate-step-details" hidden>
+        <button type="button" class="donate-back-link donate-back-link-dark" data-back-to="method">&larr; Choose a different method</button>
+
+        <div class="crypto-panel-head">
+          <svg class="crypto-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 10-4-1.6-7-5.4-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          <div>
+            <h3 id="donate-details-title">Pay with Bitcoin</h3>
+            <p>Donating <strong id="donate-details-amount">£0</strong>. Send this donation using the exact address and network shown below.</p>
+          </div>
+        </div>
+
+        <div class="crypto-card" style="max-width: 360px; margin: 0 auto 20px;">
+          <div class="crypto-card-head">
+            <span class="crypto-badge" id="donate-details-badge" aria-hidden="true">BTC</span>
+            <div>
+              <h4 id="donate-details-name">Bitcoin</h4>
+              <span class="crypto-network" id="donate-details-network">Network: Bitcoin</span>
+            </div>
+          </div>
+
+          <div class="qr-code-box" id="donate-details-qr" aria-label="QR code for this wallet address"></div>
+
+          <div class="wallet-row">
+            <div class="wallet-address" id="donate-details-address"></div>
+            <button type="button" class="copy-btn" id="donate-details-copy-btn" data-copy-target="donate-details-address" aria-label="Copy wallet address">Copy Address</button>
+          </div>
+        </div>
+
+        <!--
+          Pre-generated, verified QR codes (one per coin) encoding the exact
+          wallet address below — not a placeholder, not a third-party CDN
+          script generating them at runtime. Each was independently decoded
+          and byte-matched against the address it represents before being
+          embedded here. donate-flow.js swaps the visible one based on the
+          coin the visitor selects.
+        -->
+        <template id="qr-template-btc"><svg viewBox="0 0 148 148" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR code for the Bitcoin wallet address"><rect width="148" height="148" fill="#ffffff"/><path d="M16,16h28v4h-28zM48,16h4v4h-4zM60,16h8v4h-8zM76,16h20v4h-20zM104,16h28v4h-28zM16,20h4v4h-4zM40,20h4v4h-4zM48,20h12v4h-12zM64,20h12v4h-12zM80,20h8v4h-8zM104,20h4v4h-4zM128,20h4v4h-4zM16,24h4v4h-4zM24,24h12v4h-12zM40,24h4v4h-4zM56,24h12v4h-12zM72,24h28v4h-28zM104,24h4v4h-4zM112,24h12v4h-12zM128,24h4v4h-4zM16,28h4v4h-4zM24,28h12v4h-12zM40,28h4v4h-4zM56,28h4v4h-4zM72,28h4v4h-4zM84,28h16v4h-16zM104,28h4v4h-4zM112,28h12v4h-12zM128,28h4v4h-4zM16,32h4v4h-4zM24,32h12v4h-12zM40,32h4v4h-4zM48,32h16v4h-16zM68,32h12v4h-12zM84,32h8v4h-8zM104,32h4v4h-4zM112,32h12v4h-12zM128,32h4v4h-4zM16,36h4v4h-4zM40,36h4v4h-4zM48,36h4v4h-4zM60,36h4v4h-4zM76,36h4v4h-4zM84,36h4v4h-4zM96,36h4v4h-4zM104,36h4v4h-4zM128,36h4v4h-4zM16,40h28v4h-28zM48,40h4v4h-4zM56,40h4v4h-4zM64,40h4v4h-4zM72,40h4v4h-4zM80,40h4v4h-4zM88,40h4v4h-4zM96,40h4v4h-4zM104,40h28v4h-28zM48,44h4v4h-4zM56,44h12v4h-12zM72,44h12v4h-12zM88,44h12v4h-12zM16,48h12v4h-12zM36,48h8v4h-8zM48,48h12v4h-12zM68,48h8v4h-8zM80,48h4v4h-4zM88,48h28v4h-28zM124,48h8v4h-8zM16,52h16v4h-16zM36,52h4v4h-4zM52,52h8v4h-8zM68,52h8v4h-8zM88,52h4v4h-4zM96,52h4v4h-4zM104,52h8v4h-8zM120,52h12v4h-12zM20,56h4v4h-4zM28,56h8v4h-8zM40,56h4v4h-4zM48,56h4v4h-4zM60,56h4v4h-4zM76,56h8v4h-8zM92,56h4v4h-4zM112,56h20v4h-20zM16,60h12v4h-12zM32,60h8v4h-8zM48,60h8v4h-8zM68,60h4v4h-4zM76,60h8v4h-8zM88,60h4v4h-4zM100,60h8v4h-8zM112,60h8v4h-8zM24,64h4v4h-4zM36,64h12v4h-12zM52,64h4v4h-4zM60,64h12v4h-12zM76,64h12v4h-12zM92,64h8v4h-8zM104,64h4v4h-4zM116,64h4v4h-4zM124,64h4v4h-4zM16,68h12v4h-12zM32,68h4v4h-4zM48,68h8v4h-8zM64,68h4v4h-4zM80,68h4v4h-4zM92,68h20v4h-20zM116,68h4v4h-4zM16,72h8v4h-8zM32,72h4v4h-4zM40,72h4v4h-4zM48,72h4v4h-4zM64,72h24v4h-24zM92,72h4v4h-4zM100,72h4v4h-4zM112,72h4v4h-4zM128,72h4v4h-4zM16,76h8v4h-8zM44,76h4v4h-4zM52,76h16v4h-16zM72,76h4v4h-4zM80,76h4v4h-4zM88,76h8v4h-8zM100,76h4v4h-4zM108,76h12v4h-12zM128,76h4v4h-4zM20,80h16v4h-16zM40,80h12v4h-12zM68,80h16v4h-16zM92,80h4v4h-4zM104,80h12v4h-12zM124,80h8v4h-8zM20,84h16v4h-16zM44,84h8v4h-8zM68,84h20v4h-20zM96,84h4v4h-4zM104,84h8v4h-8zM116,84h4v4h-4zM124,84h8v4h-8zM16,88h8v4h-8zM28,88h4v4h-4zM36,88h12v4h-12zM52,88h12v4h-12zM76,88h12v4h-12zM92,88h8v4h-8zM108,88h24v4h-24zM24,92h4v4h-4zM56,92h4v4h-4zM68,92h4v4h-4zM80,92h4v4h-4zM88,92h20v4h-20zM112,92h8v4h-8zM124,92h4v4h-4zM16,96h8v4h-8zM28,96h4v4h-4zM36,96h12v4h-12zM52,96h4v4h-4zM60,96h12v4h-12zM76,96h8v4h-8zM96,96h20v4h-20zM124,96h8v4h-8zM48,100h4v4h-4zM64,100h4v4h-4zM76,100h16v4h-16zM96,100h4v4h-4zM112,100h4v4h-4zM120,100h12v4h-12zM16,104h28v4h-28zM52,104h8v4h-8zM64,104h36v4h-36zM104,104h4v4h-4zM112,104h20v4h-20zM16,108h4v4h-4zM40,108h4v4h-4zM48,108h20v4h-20zM72,108h4v4h-4zM88,108h12v4h-12zM112,108h4v4h-4zM128,108h4v4h-4zM16,112h4v4h-4zM24,112h12v4h-12zM40,112h4v4h-4zM56,112h4v4h-4zM68,112h8v4h-8zM84,112h4v4h-4zM92,112h24v4h-24zM124,112h8v4h-8zM16,116h4v4h-4zM24,116h12v4h-12zM40,116h4v4h-4zM56,116h4v4h-4zM68,116h20v4h-20zM100,116h4v4h-4zM112,116h4v4h-4zM128,116h4v4h-4zM16,120h4v4h-4zM24,120h12v4h-12zM40,120h4v4h-4zM48,120h16v4h-16zM76,120h12v4h-12zM92,120h16v4h-16zM112,120h8v4h-8zM124,120h8v4h-8zM16,124h4v4h-4zM40,124h4v4h-4zM48,124h4v4h-4zM56,124h4v4h-4zM68,124h4v4h-4zM76,124h8v4h-8zM88,124h12v4h-12zM108,124h12v4h-12zM16,128h28v4h-28zM48,128h8v4h-8zM60,128h12v4h-12zM76,128h4v4h-4zM84,128h4v4h-4zM96,128h4v4h-4zM108,128h4v4h-4zM116,128h4v4h-4zM128,128h4v4h-4z" fill="#000000"/></svg></template>
+        <template id="qr-template-eth"><svg viewBox="0 0 148 148" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR code for the Ethereum wallet address"><rect width="148" height="148" fill="#ffffff"/><path d="M16,16h28v4h-28zM56,16h4v4h-4zM64,16h4v4h-4zM80,16h4v4h-4zM92,16h4v4h-4zM104,16h28v4h-28zM16,20h4v4h-4zM40,20h4v4h-4zM48,20h4v4h-4zM56,20h4v4h-4zM68,20h4v4h-4zM76,20h4v4h-4zM88,20h4v4h-4zM96,20h4v4h-4zM104,20h4v4h-4zM128,20h4v4h-4zM16,24h4v4h-4zM24,24h12v4h-12zM40,24h4v4h-4zM64,24h4v4h-4zM80,24h4v4h-4zM88,24h12v4h-12zM104,24h4v4h-4zM112,24h12v4h-12zM128,24h4v4h-4zM16,28h4v4h-4zM24,28h12v4h-12zM40,28h4v4h-4zM48,28h12v4h-12zM64,28h16v4h-16zM84,28h8v4h-8zM96,28h4v4h-4zM104,28h4v4h-4zM112,28h12v4h-12zM128,28h4v4h-4zM16,32h4v4h-4zM24,32h12v4h-12zM40,32h4v4h-4zM52,32h4v4h-4zM80,32h4v4h-4zM92,32h4v4h-4zM104,32h4v4h-4zM112,32h12v4h-12zM128,32h4v4h-4zM16,36h4v4h-4zM40,36h4v4h-4zM48,36h8v4h-8zM60,36h24v4h-24zM96,36h4v4h-4zM104,36h4v4h-4zM128,36h4v4h-4zM16,40h28v4h-28zM48,40h4v4h-4zM56,40h4v4h-4zM64,40h4v4h-4zM72,40h4v4h-4zM80,40h4v4h-4zM88,40h4v4h-4zM96,40h4v4h-4zM104,40h28v4h-28zM52,44h12v4h-12zM76,44h4v4h-4zM88,44h4v4h-4zM16,48h20v4h-20zM40,48h16v4h-16zM60,48h4v4h-4zM68,48h4v4h-4zM76,48h4v4h-4zM84,48h8v4h-8zM96,48h8v4h-8zM108,48h4v4h-4zM116,48h4v4h-4zM124,48h4v4h-4zM16,52h16v4h-16zM36,52h4v4h-4zM48,52h4v4h-4zM56,52h4v4h-4zM64,52h12v4h-12zM80,52h4v4h-4zM92,52h4v4h-4zM100,52h20v4h-20zM124,52h8v4h-8zM16,56h4v4h-4zM24,56h4v4h-4zM36,56h8v4h-8zM48,56h4v4h-4zM56,56h4v4h-4zM76,56h8v4h-8zM88,56h4v4h-4zM96,56h8v4h-8zM112,56h4v4h-4zM120,56h4v4h-4zM32,60h8v4h-8zM44,60h4v4h-4zM64,60h4v4h-4zM72,60h8v4h-8zM96,60h20v4h-20zM16,64h12v4h-12zM32,64h4v4h-4zM40,64h4v4h-4zM48,64h12v4h-12zM64,64h8v4h-8zM76,64h4v4h-4zM84,64h4v4h-4zM96,64h4v4h-4zM116,64h12v4h-12zM20,68h12v4h-12zM48,68h8v4h-8zM68,68h8v4h-8zM80,68h4v4h-4zM88,68h8v4h-8zM100,68h16v4h-16zM124,68h8v4h-8zM20,72h8v4h-8zM40,72h8v4h-8zM60,72h8v4h-8zM76,72h8v4h-8zM88,72h4v4h-4zM116,72h8v4h-8zM16,76h4v4h-4zM48,76h8v4h-8zM60,76h4v4h-4zM72,76h8v4h-8zM112,76h8v4h-8zM124,76h4v4h-4zM16,80h8v4h-8zM28,80h4v4h-4zM36,80h16v4h-16zM56,80h8v4h-8zM68,80h4v4h-4zM76,80h4v4h-4zM84,80h20v4h-20zM108,80h4v4h-4zM120,80h12v4h-12zM16,84h4v4h-4zM28,84h8v4h-8zM44,84h4v4h-4zM52,84h4v4h-4zM64,84h4v4h-4zM72,84h4v4h-4zM80,84h4v4h-4zM92,84h4v4h-4zM104,84h4v4h-4zM112,84h8v4h-8zM128,84h4v4h-4zM16,88h4v4h-4zM28,88h8v4h-8zM40,88h16v4h-16zM68,88h4v4h-4zM76,88h4v4h-4zM84,88h8v4h-8zM112,88h4v4h-4zM120,88h4v4h-4zM16,92h4v4h-4zM24,92h4v4h-4zM36,92h4v4h-4zM44,92h8v4h-8zM64,92h4v4h-4zM72,92h8v4h-8zM88,92h12v4h-12zM108,92h8v4h-8zM124,92h4v4h-4zM16,96h4v4h-4zM24,96h4v4h-4zM40,96h4v4h-4zM48,96h4v4h-4zM56,96h4v4h-4zM64,96h8v4h-8zM76,96h16v4h-16zM96,96h32v4h-32zM48,100h4v4h-4zM56,100h4v4h-4zM68,100h8v4h-8zM96,100h4v4h-4zM112,100h4v4h-4zM120,100h4v4h-4zM128,100h4v4h-4zM16,104h28v4h-28zM48,104h8v4h-8zM60,104h8v4h-8zM76,104h4v4h-4zM84,104h16v4h-16zM104,104h4v4h-4zM112,104h4v4h-4zM124,104h4v4h-4zM16,108h4v4h-4zM40,108h4v4h-4zM56,108h8v4h-8zM72,108h8v4h-8zM92,108h8v4h-8zM112,108h4v4h-4zM124,108h8v4h-8zM16,112h4v4h-4zM24,112h12v4h-12zM40,112h4v4h-4zM48,112h4v4h-4zM60,112h4v4h-4zM80,112h12v4h-12zM96,112h36v4h-36zM16,116h4v4h-4zM24,116h12v4h-12zM40,116h4v4h-4zM48,116h4v4h-4zM56,116h4v4h-4zM64,116h8v4h-8zM92,116h12v4h-12zM108,116h4v4h-4zM120,116h12v4h-12zM16,120h4v4h-4zM24,120h12v4h-12zM40,120h4v4h-4zM48,120h8v4h-8zM68,120h12v4h-12zM104,120h4v4h-4zM112,120h4v4h-4zM124,120h4v4h-4zM16,124h4v4h-4zM40,124h4v4h-4zM48,124h8v4h-8zM64,124h8v4h-8zM76,124h8v4h-8zM88,124h16v4h-16zM124,124h4v4h-4zM16,128h28v4h-28zM48,128h12v4h-12zM64,128h4v4h-4zM72,128h8v4h-8zM84,128h4v4h-4zM100,128h4v4h-4zM112,128h12v4h-12z" fill="#000000"/></svg></template>
+        <template id="qr-template-usdt"><svg viewBox="0 0 148 148" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR code for the USDT wallet address"><rect width="148" height="148" fill="#ffffff"/><path d="M16,16h28v4h-28zM48,16h4v4h-4zM60,16h8v4h-8zM76,16h12v4h-12zM92,16h4v4h-4zM104,16h28v4h-28zM16,20h4v4h-4zM40,20h4v4h-4zM48,20h12v4h-12zM64,20h12v4h-12zM80,20h8v4h-8zM96,20h4v4h-4zM104,20h4v4h-4zM128,20h4v4h-4zM16,24h4v4h-4zM24,24h12v4h-12zM40,24h4v4h-4zM56,24h12v4h-12zM72,24h16v4h-16zM92,24h4v4h-4zM104,24h4v4h-4zM112,24h12v4h-12zM128,24h4v4h-4zM16,28h4v4h-4zM24,28h12v4h-12zM40,28h4v4h-4zM56,28h4v4h-4zM72,28h4v4h-4zM84,28h4v4h-4zM96,28h4v4h-4zM104,28h4v4h-4zM112,28h12v4h-12zM128,28h4v4h-4zM16,32h4v4h-4zM24,32h12v4h-12zM40,32h4v4h-4zM48,32h16v4h-16zM68,32h12v4h-12zM104,32h4v4h-4zM112,32h12v4h-12zM128,32h4v4h-4zM16,36h4v4h-4zM40,36h4v4h-4zM48,36h4v4h-4zM60,36h4v4h-4zM76,36h4v4h-4zM96,36h4v4h-4zM104,36h4v4h-4zM128,36h4v4h-4zM16,40h28v4h-28zM48,40h4v4h-4zM56,40h4v4h-4zM64,40h4v4h-4zM72,40h4v4h-4zM80,40h4v4h-4zM88,40h4v4h-4zM96,40h4v4h-4zM104,40h28v4h-28zM48,44h4v4h-4zM56,44h12v4h-12zM72,44h12v4h-12zM92,44h4v4h-4zM16,48h12v4h-12zM36,48h8v4h-8zM48,48h12v4h-12zM68,48h8v4h-8zM80,48h8v4h-8zM92,48h4v4h-4zM100,48h16v4h-16zM124,48h8v4h-8zM16,52h12v4h-12zM32,52h4v4h-4zM44,52h4v4h-4zM52,52h8v4h-8zM68,52h8v4h-8zM84,52h4v4h-4zM92,52h8v4h-8zM108,52h4v4h-4zM120,52h4v4h-4zM128,52h4v4h-4zM16,56h4v4h-4zM24,56h4v4h-4zM36,56h8v4h-8zM60,56h4v4h-4zM76,56h4v4h-4zM84,56h16v4h-16zM104,56h4v4h-4zM112,56h12v4h-12zM128,56h4v4h-4zM20,60h8v4h-8zM32,60h8v4h-8zM48,60h8v4h-8zM68,60h4v4h-4zM76,60h8v4h-8zM92,60h16v4h-16zM116,60h4v4h-4zM124,60h4v4h-4zM16,64h12v4h-12zM36,64h20v4h-20zM60,64h12v4h-12zM76,64h8v4h-8zM92,64h4v4h-4zM104,64h12v4h-12zM120,64h4v4h-4zM128,64h4v4h-4zM16,68h12v4h-12zM36,68h4v4h-4zM44,68h12v4h-12zM64,68h4v4h-4zM76,68h16v4h-16zM96,68h8v4h-8zM108,68h4v4h-4zM128,68h4v4h-4zM24,72h4v4h-4zM32,72h4v4h-4zM40,72h4v4h-4zM48,72h8v4h-8zM64,72h16v4h-16zM84,72h12v4h-12zM100,72h24v4h-24zM128,72h4v4h-4zM16,76h4v4h-4zM24,76h4v4h-4zM44,76h8v4h-8zM60,76h8v4h-8zM72,76h4v4h-4zM92,76h4v4h-4zM100,76h4v4h-4zM112,76h8v4h-8zM128,76h4v4h-4zM16,80h4v4h-4zM24,80h4v4h-4zM32,80h12v4h-12zM48,80h8v4h-8zM68,80h12v4h-12zM96,80h4v4h-4zM104,80h4v4h-4zM124,80h4v4h-4zM20,84h4v4h-4zM28,84h4v4h-4zM44,84h8v4h-8zM56,84h4v4h-4zM68,84h8v4h-8zM80,84h4v4h-4zM92,84h8v4h-8zM104,84h8v4h-8zM16,88h8v4h-8zM32,88h4v4h-4zM40,88h12v4h-12zM56,88h8v4h-8zM76,88h12v4h-12zM92,88h4v4h-4zM100,88h8v4h-8zM120,88h4v4h-4zM128,88h4v4h-4zM24,92h8v4h-8zM36,92h4v4h-4zM48,92h4v4h-4zM68,92h4v4h-4zM80,92h4v4h-4zM96,92h4v4h-4zM104,92h8v4h-8zM116,92h4v4h-4zM16,96h8v4h-8zM28,96h8v4h-8zM40,96h8v4h-8zM52,96h20v4h-20zM76,96h8v4h-8zM88,96h36v4h-36zM128,96h4v4h-4zM48,100h4v4h-4zM64,100h4v4h-4zM76,100h16v4h-16zM96,100h4v4h-4zM112,100h8v4h-8zM124,100h4v4h-4zM16,104h28v4h-28zM56,104h4v4h-4zM64,104h16v4h-16zM84,104h8v4h-8zM96,104h4v4h-4zM104,104h4v4h-4zM112,104h4v4h-4zM120,104h4v4h-4zM128,104h4v4h-4zM16,108h4v4h-4zM40,108h4v4h-4zM48,108h4v4h-4zM56,108h12v4h-12zM72,108h4v4h-4zM80,108h4v4h-4zM88,108h12v4h-12zM112,108h8v4h-8zM128,108h4v4h-4zM16,112h4v4h-4zM24,112h12v4h-12zM40,112h4v4h-4zM56,112h4v4h-4zM68,112h12v4h-12zM84,112h4v4h-4zM92,112h24v4h-24zM124,112h8v4h-8zM16,116h4v4h-4zM24,116h12v4h-12zM40,116h4v4h-4zM52,116h4v4h-4zM68,116h16v4h-16zM100,116h4v4h-4zM108,116h12v4h-12zM128,116h4v4h-4zM16,120h4v4h-4zM24,120h12v4h-12zM40,120h4v4h-4zM48,120h16v4h-16zM76,120h8v4h-8zM88,120h8v4h-8zM108,120h24v4h-24zM16,124h4v4h-4zM40,124h4v4h-4zM48,124h8v4h-8zM68,124h4v4h-4zM76,124h8v4h-8zM88,124h12v4h-12zM116,124h4v4h-4zM16,128h28v4h-28zM48,128h4v4h-4zM56,128h16v4h-16zM76,128h12v4h-12zM92,128h24v4h-24zM128,128h4v4h-4z" fill="#000000"/></svg></template>
+
+        <p class="donate-instructions-note">This page shows payment instructions only. Completing the transfer happens in your own wallet or exchange app — Everlight Foundation does not process or automatically confirm cryptocurrency transactions.</p>
+
+        <ul class="crypto-trust-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>
+            <span>These addresses belong to Everlight Foundation and are published here for direct donations.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>
+            <span>Everlight Foundation will never ask you to send a donation via email, social media, or direct message.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>
+            <span>USDT is sent on the TRON (TRC-20) network only — sending via another network to this address may result in loss of funds.</span>
+          </li>
+        </ul>
+
+        <p class="crypto-warning">Always double-check the cryptocurrency and network before sending funds. Sending the wrong asset or using the wrong network may result in permanent loss of funds. Cryptocurrency donations cannot be reversed or refunded once sent.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="callout-band" style="padding: 0;">
+    <div class="container">
+      <div>
+        <h2>Prefer to give another way?</h2>
+        <p>Sponsorship offers a way to give ongoing support.</p>
+      </div>
+      <div class="hero-actions" style="margin-top:0;">
+        <a href="sponsor.html" class="btn btn-secondary">Become a Sponsor</a>
+        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="assets/logo-icon.png" alt="Everlight Foundation logo">
+        <div class="footer-brand">Everlight Foundation</div>
+        <p class="footer-tagline">Bringing Hope. Changing Lives.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="our-work.html">Our Work</a></li>
+          <li><a href="sponsor.html">Become a Sponsor</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:everlightfoundation62@gmail.com">everlightfoundation62@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/everlight__foundation/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="current-year">2026</span> Everlight Foundation. All rights reserved.</span>
+      <span>Site built for review — not yet published</span>
+    </div>
+    <p class="footer-legal-note">Everlight Foundation's official registration and legal information will be added here once available. This website does not currently claim registered charity status.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

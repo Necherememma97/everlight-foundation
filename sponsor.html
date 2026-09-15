@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become a Sponsor — Everlight Foundation</title>
+<meta name="description" content="Become a sponsor of Everlight Foundation and help fund ongoing food, clothing, and education support.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="assets/logo-icon.png" alt="Everlight Foundation logo">
+      Everlight Foundation
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="our-work.html">Our Work</a></li>
+      <li><a href="sponsor.html" aria-current="page">Become a Sponsor</a></li>
+      <li><a href="sponsor-login.html">Sponsor Login</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a class="nav-cta" href="donate.html">Donate</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+  <section style="padding-bottom: 24px;">
+    <div class="container">
+      <div class="section-head">
+        <h1 style="font-size: clamp(2.2rem, 4vw, 3rem);">Become a Sponsor</h1>
+        <p class="hero-lede">Sponsors provide the ongoing support that helps Everlight Foundation plan ahead and sustain its work. Tell us a little about how you'd like to help.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="container" style="max-width: 780px;">
+      <div class="form-card" id="sponsor-form-card">
+
+        <div class="form-note">
+          Complete the form below and it will be submitted directly and securely to Everlight Foundation. Fields marked <span class="required-mark">*</span> are required.
+        </div>
+
+        <form id="sponsor-form" novalidate>
+          <div class="form-grid">
+            <div class="field full">
+              <label for="sponsor-name">Full Name <span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="text" id="sponsor-name" name="fullName" autocomplete="name" required aria-required="true">
+            </div>
+
+            <div class="field">
+              <label for="sponsor-email">Email Address <span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="email" id="sponsor-email" name="email" autocomplete="email" required aria-required="true">
+            </div>
+
+            <div class="field">
+              <label for="sponsor-phone">Phone Number <span class="optional-mark">(optional)</span></label>
+              <input type="tel" id="sponsor-phone" name="phone" autocomplete="tel">
+            </div>
+
+            <div class="field full">
+              <label for="sponsor-country">Country <span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="text" id="sponsor-country" name="country" autocomplete="country-name" required aria-required="true">
+            </div>
+
+            <div class="field">
+              <label for="sponsor-password">Create Password <span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="password" id="sponsor-password" name="password" autocomplete="new-password" required aria-required="true" minlength="8">
+              <p class="hint">At least 8 characters, with letters and numbers.</p>
+            </div>
+
+            <div class="field">
+              <label for="sponsor-password-confirm">Confirm Password <span class="required-mark" aria-hidden="true">*</span></label>
+              <input type="password" id="sponsor-password-confirm" name="passwordConfirm" autocomplete="new-password" required aria-required="true" minlength="8">
+            </div>
+
+            <div id="sponsor-password-error" class="form-result error field full" role="alert" style="margin-top: -8px;"></div>
+
+            <div class="field full">
+              <label for="sponsor-support">Why would you like to support Everlight Foundation, and how much or what kind of support would you like to provide? <span class="required-mark" aria-hidden="true">*</span></label>
+              <textarea id="sponsor-support" name="support" required aria-required="true"></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="sponsor-message">Kind words for the people we support <span class="optional-mark">(optional)</span></label>
+              <textarea id="sponsor-message" name="message"></textarea>
+            </div>
+          </div>
+
+          <div class="checkbox-field">
+            <input type="checkbox" id="sponsor-consent" name="consent" required aria-required="true">
+            <label for="sponsor-consent">I agree to be contacted by Everlight Foundation regarding my support.</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="sponsor-submit-btn">
+            <span class="btn-spinner" aria-hidden="true"></span>
+            <span class="btn-label">Become a Sponsor</span>
+          </button>
+
+          <div id="sponsor-result" class="form-result" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+
+      <div class="form-card success-screen" id="sponsor-success-screen" role="status" aria-live="polite">
+        <div class="success-screen-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h2>Congratulations!</h2>
+        <p>Your sponsorship registration has been successfully received. Thank you for becoming a sponsor of Everlight Foundation.</p>
+        <p class="success-email-note" id="sponsor-success-email-note"></p>
+        <p style="margin-top: 16px;">You can now <a href="sponsor-login.html">log in to your Sponsor Dashboard</a> using the password you just created.</p>
+        <button type="button" class="btn btn-secondary" id="sponsor-success-reset-btn">Register another sponsor</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="assets/logo-icon.png" alt="Everlight Foundation logo">
+        <div class="footer-brand">Everlight Foundation</div>
+        <p class="footer-tagline">Bringing Hope. Changing Lives.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="our-work.html">Our Work</a></li>
+          <li><a href="sponsor.html">Become a Sponsor</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:everlightfoundation62@gmail.com">everlightfoundation62@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/everlight__foundation/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="current-year">2026</span> Everlight Foundation. All rights reserved.</span>
+      <span>Site built for review — not yet published</span>
+    </div>
+    <p class="footer-legal-note">Everlight Foundation's official registration and legal information will be added here once available. This website does not currently claim registered charity status.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
